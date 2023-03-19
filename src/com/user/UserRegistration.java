@@ -3,13 +3,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import com.adminMain.*;
 
-public class User_Registration 
+public class UserRegistration 
 {
 	public static void insertUserDetails(String Fname,String Lname,String Username,String Password,String City,String Email,String Phone)
 	{
 		try
 		{
-			Connection con=CommonCon.getConnection();
+			Connection con=CommonConnection.getConnection();
 			
 			PreparedStatement pstm=con.prepareStatement("insert into user_details (FNAME,LNAME,USERNAME,PASS_WORD,CITY,EMAIL,PHONE_NO)values(?,?,?,?,?,?,?)");
 			

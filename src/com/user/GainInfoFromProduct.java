@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import com.adminMain.CommonCon;
+import com.adminMain.CommonConnection;
 
 public class GainInfoFromProduct 
 {
@@ -13,7 +13,7 @@ public class GainInfoFromProduct
 	{
 		try
 		{
-			Connection con=CommonCon.getConnection();
+			Connection con=CommonConnection.getConnection();
 			
 			PreparedStatement pstm=con.prepareStatement("select * from product where id=?");
 			pstm.setInt(1, id);

@@ -2,7 +2,7 @@ package com.main;
 import java.util.Scanner;
 import com.user.*;
 import com.adminMain.*;
-public class Main_Disp {
+public class MainDisplay {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -14,7 +14,7 @@ public class Main_Disp {
 		System.out.println("******** >> Welcome To Ecommerse Application << ********");
 		
 		
-		System.out.println("\n 1-Registered User  \n 2-Admin \n 3-Guest User \n 4-Exit");
+		System.out.println("\n 1-User Operation  \n 2-Admin Operation \n 3-Guest Operation \n 4-Exit");
 		
 		System.out.println("Please Select your Status");
 		ch=x.nextInt();
@@ -39,29 +39,47 @@ public class Main_Disp {
             		String Lname=x.next();
 
             		System.out.println("Enter the User Name:");
-            		String Username=x.next();
+            		String Username=x.nextLine();
+            		
 
             		System.out.println("Enter the Password:");
-            		String Password=x.next();
+            		String Password=x.nextLine();
+            		
 
             		System.out.println("Enter the City Name:");
-            		String City=x.next();
+            		String City=x.nextLine();
+            		
 
             		System.out.println("Enter the Email:");
-            		String Email=x.next();
+            		String Email=x.nextLine();
+            	
 
             		System.out.println("Enter the Phone Number:");
-            		String Phone=x.next();
+            		String Phone=x.nextLine();
             		
-            		 User_Registration.insertUserDetails(Fname, Lname,Username,Password,City,Email,Phone);
+            		
+            		 UserRegistration.insertUserDetails(Fname, Lname,Username,Password,City,Email,Phone);
             		break;
             	case 2:
             		break;
             	case 3:
+            		System.out.println("*********Available Product List*******");
+            		UserViewProduct.viewProduct();
             		break;
             	case 4:
+            		System.out.println("******Buy/Add to cart Product********");
+            		
+            		System.out.println("Enter the product id:");
+            		int id=x.nextInt();
+            		
+            		System.out.println("Enter the Quantity:");
+            		int qty=x.nextInt();
+            		
+            		GainInfoFromProduct.ProductInfo(id,qty);
             		break;
             	case 5:
+            		System.out.println("*********Cart Item*********");
+            		UserViewCartItem .viewCart();
             		break;
             	case 6:
             		break;
@@ -77,7 +95,8 @@ public class Main_Disp {
 			
 		case 2:
 			do {
-			System.out.println("\n 1-Add Product item \n 2-Calculate Bill \n 3-Display Amount To End User "
+				System.out.println("*****Admin Operation*****");
+			    System.out.println("\n 1-Add Product item \n 2-Calculate Bill \n 3-Display Amount To End User "
 					+ "\n 4-Check Quantity  \n 5-check Registered Users \n 6-Check The Particular History \n 7-Exit");
 			
 			System.out.println("Select your choice");
@@ -89,20 +108,22 @@ public class Main_Disp {
 			 {
 			 case 1:
 			
-				 Scanner y=new Scanner(System.in);
+//				 Scanner y=new Scanner(System.in);
 				
                  
 					System.out.println("Enter the Product Price");
-					int price=y.nextInt();
+					int price=x.nextInt();
+					x.nextLine();
 					
 					System.out.println("Enter the Product Description");
-					String description=x.next();
+					String description=x.nextLine();
 					
 					System.out.println("Enter the Product Quantity");
-					int qty=y.nextInt();
+					int qty=x.nextInt();
+					x.nextLine();
 					
 					System.out.println("Enter the Product Name");
-					String name=y.next();
+					String name=x.nextLine();
 
 					
 					InsertRecord.insertProduct(description,name,price,qty);
@@ -128,13 +149,14 @@ public class Main_Disp {
 				 System.out.println();
 				 break;
 			default:
-				System.out.println("Enter the Wrong Choice Enter again");	 
+				System.out.println(" Wrong Choice Enter again");	 
 			 }
 			}while(pd!=7);
 			
 			break;
 			
 		case 3:
+			
 			break;		
 		case 4:
 			System.out.println("\n\n *****THank You*****");

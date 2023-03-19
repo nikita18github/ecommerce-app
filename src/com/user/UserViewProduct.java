@@ -3,7 +3,7 @@ package com.user;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import com.adminMain.CommonCon;
+import com.adminMain.CommonConnection;
 
 public class UserViewProduct 
 {
@@ -11,7 +11,7 @@ public class UserViewProduct
 	{
 		try
 		{
-			Connection con=CommonCon.getConnection();
+			Connection con=CommonConnection.getConnection();
 			
 			PreparedStatement pstm=con.prepareStatement("select * from product");
 			

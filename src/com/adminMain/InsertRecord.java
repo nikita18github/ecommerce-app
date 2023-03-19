@@ -10,7 +10,7 @@ public class InsertRecord {
 	{
 		try
 		{
-			Connection con=CommonCon.getConnection();
+			Connection con=CommonConnection.getConnection();
 			
 			PreparedStatement pstm=con.prepareStatement("insert into product(Details,P_Name,Price,Quantity)values(?,?,?,?)");
 			

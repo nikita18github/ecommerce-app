@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import com.adminMain.CommonCon;
+import com.adminMain.CommonConnection;
 
 public class UserViewCartItem 
 {
@@ -12,7 +12,7 @@ public class UserViewCartItem
 		{
 			try
 			{
-				Connection con=CommonCon.getConnection();
+				Connection con=CommonConnection.getConnection();
 				
 				PreparedStatement pstm=con.prepareStatement("select * from cart");
 				

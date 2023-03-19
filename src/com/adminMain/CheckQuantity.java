@@ -10,7 +10,7 @@ public class CheckQuantity {
 	{
 		try
 		{
-			Connection con=CommonCon.getConnection();
+			Connection con=CommonConnection.getConnection();
 			
 			PreparedStatement pstm=con.prepareStatement("select Quantity from product where id=?");
 			
