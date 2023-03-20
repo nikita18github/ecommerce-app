@@ -32,7 +32,7 @@ public class GainInfoFromProduct
 				
 				pstm2.setInt(6, qty);
 				int p=Integer.parseInt(rs.getString(4));
-//				int q=Integer.parseInt(rs.getString(6));
+
 				pstm2.setInt(7,p*qty);
 				pstm2.setString(8, "**date**");
 				System.out.println("\n********Item Added to The Cart List*****");
