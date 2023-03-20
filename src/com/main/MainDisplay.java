@@ -1,7 +1,7 @@
 package com.main;
 import java.util.Scanner;
 import com.user.*;
-//import com.Guest.ViewProduct;
+import com.Guest.ViewProduct;
 import com.adminMain.*;
 public class MainDisplay {
 
@@ -170,7 +170,7 @@ public class MainDisplay {
 				{
 				case 1:
 					System.out.println("*****View Product*****");
-				//	ViewProduct.viewProductAsGuest();
+					ViewProduct.viewProductAsGuest();
 					break;
 				
 				case 2:
