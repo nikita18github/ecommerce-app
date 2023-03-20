@@ -6,7 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.adminMain.CheckUserHistory;
-import com.adminMain.CommonCon;
+import com.adminMain.CommonConnection;
+import com.adminMain.CommonConnection;
 
 public class UserLogin {
 	
@@ -16,7 +17,7 @@ public class UserLogin {
 	{
 		try 
 		{
-		Connection con=CommonCon.getConnection();
+		Connection con=CommonConnection.getConnection();
 		PreparedStatement pstm=con.prepareStatement("select * from userdetails where USERNAME=?");
 		pstm.setString(1,uname);
 	

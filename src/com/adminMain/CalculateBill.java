@@ -10,7 +10,7 @@ public class CalculateBill {
 	private String uname;
 	public static void totalAmount(String uname)
 	{
-		Connection con=CommonCon.getConnection();
+		Connection con=CommonConnection.getConnection();
 		
 		try {
 			

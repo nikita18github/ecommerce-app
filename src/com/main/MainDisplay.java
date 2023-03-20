@@ -1,20 +1,21 @@
 package com.main;
 import java.util.Scanner;
 import com.user.*;
+//import com.Guest.ViewProduct;
 import com.adminMain.*;
-public class Main_Disp {
+public class MainDisplay {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 		Scanner x=new Scanner(System.in);		
-		int ch,pd,uo;
+		int ch,pd,uo,vpg;
 		
 		do {
 		System.out.println("******** >> Welcome To Ecommerce Application << ********");
 		
 		
-		System.out.println("\n 1-Registered User  \n 2-Admin \n 3-Guest User \n 4-Exit");
+		System.out.println("\n 1-User Operation  \n 2-Admin Operation \n 3-Guest Operation \n 4-Exit");
 		
 		System.out.println("Please Select your Status");
 		ch=x.nextInt();
@@ -33,28 +34,8 @@ public class Main_Disp {
             	switch(uo)
             	{
             	case 1:
-            		System.out.println("Enter the First Name:");
-            		String Fname=x.next();
-
-            		System.out.println("Enter the Last Name:");
-            		String Lname=x.next();
-
-            		System.out.println("Enter the User Name:");
-            		String Username=x.next();
-
-            		System.out.println("Enter the Password:");
-            		String Password=x.next();
-
-            		System.out.println("Enter the City Name:");
-            		String City=x.next();
-
-            		System.out.println("Enter the Email:");
-            		String Email=x.next();
-
-            		System.out.println("Enter the Phone Number:");
-            		String Phone=x.next();
-            		
-            		 User_Registration.insertUserDetails(Fname, Lname,Username,Password,City,Email,Phone);
+            		System.out.println("*****Enter Details******");
+            		  UserRegistration.insertUserDetails();
             		break;
             	case 2:
             		System.out.println("Enter user-name: ");
@@ -66,10 +47,27 @@ public class Main_Disp {
             		UserLogin.userLogin(uname, password);
             		break;
             	case 3:
+            		System.out.println("*********Available Product List*******");
+            		UserViewProduct.viewProduct();
             		break;
             	case 4:
+            		System.out.println("******Buy/Add to cart Product********");
+            		
+            		System.out.println("Enter the product id:");
+            		int id=x.nextInt();
+            		
+            		System.out.println("Enter the Quantity:");
+            		int qty=x.nextInt();
+
+            		System.out.println("Enter the User Name:");
+            		String UserName=x.next();
+            		
+            		
+            		GainInfoFromProduct.ProductInfo(id,qty,UserName);
             		break;
             	case 5:
+            		System.out.println("*********Cart Item*********");
+            		UserViewCartItem .viewCart();
             		break;
             	case 6:
             		break;
@@ -85,8 +83,9 @@ public class Main_Disp {
 			
 		case 2:
 			do {
-				
-			System.out.println("\n 1-Add Product item \n 2-Calculate Bill \n 3-Display Amount To End User "
+
+				System.out.println("*****Admin Operation*****");
+			    System.out.println("\n 1-Add Product item \n 2-Calculate Bill \n 3-Display Amount To End User "
 					+ "\n 4-Check Quantity  \n 5-check Registered Users \n 6-Display History \n 7-Exit");
 			
 			System.out.println("Select your choice");
@@ -96,20 +95,22 @@ public class Main_Disp {
 			 {
 			 case 1:
 			
-				 Scanner y=new Scanner(System.in);
+//				 Scanner y=new Scanner(System.in);
 				
               
 					System.out.println("Enter the Product Price");
-					int price=y.nextInt();
+					int price=x.nextInt();
+					x.nextLine();
 					
 					System.out.println("Enter the Product Description");
-					String description=x.next();
+					String description=x.nextLine();
 					
 					System.out.println("Enter the Product Quantity");
-					int qty=y.nextInt();
+					int qty=x.nextInt();
+					x.nextLine();
 					
 					System.out.println("Enter the Product Name");
-					String name=y.next();
+					String name=x.nextLine();
 
 					
 					InsertRecord.insertProduct(description,name,price,qty);
@@ -152,13 +153,36 @@ public class Main_Disp {
 				DisplayHistory.showHistory(uname);
 				 break;				 
 			default:
-				System.out.println("Enter the Wrong Choice Enter again");	 
+				System.out.println(" Wrong Choice Enter again");	 
 			 }
 			}while(pd!=7);
 			
 			break;
 			
 		case 3:
+			do {
+				System.out.println("******Guest Operation******");
+				System.out.println("\n 1-View Product \n 2-Purchase Item \n 3-Exit");
+				vpg=x.nextInt();
+				
+				switch(vpg)
+				{
+				case 1:
+					System.out.println("*****View Product*****");
+				//	ViewProduct.viewProductAsGuest();
+					break;
+				
+				case 2:
+					System.out.println("****Please Register yourself First***");
+					UserRegistration.insertUserDetails();
+					break;
+				case 3:
+					System.out.println();
+					break;
+				default:
+					System.out.println("Wrong Choice....Enter Again");
+				}
+			}while(vpg!=3);
 			break;		
 		case 4:
 			System.out.println("\n\n *****THank You*****");

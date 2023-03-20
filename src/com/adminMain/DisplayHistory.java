@@ -10,7 +10,7 @@ public class DisplayHistory {
 	
 	public static void showHistory(String uname)
 	{
-		Connection con=CommonCon.getConnection();
+		Connection con=CommonConnection.getConnection();
 		try {
 			PreparedStatement pstm=con.prepareStatement("select * from userhistory where UserName=?");
 			pstm.setString(1, uname);

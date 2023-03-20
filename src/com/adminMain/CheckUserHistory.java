@@ -16,7 +16,7 @@ public class CheckUserHistory {
 		
 		try {
 			
-			Connection con=CommonCon.getConnection();
+			Connection con=CommonConnection.getConnection();
 			PreparedStatement pstm=con.prepareStatement("insert into userhistory(UserName,Actions,dateofactions)values(?,?,?)");
 			pstm.setString(1,uname);
 			pstm.setString(2, actions);

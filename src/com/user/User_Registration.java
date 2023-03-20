@@ -9,7 +9,7 @@ public class User_Registration
 	{
 		try
 		{
-			Connection con=CommonCon.getConnection();
+			Connection con=CommonConnection.getConnection();
 			
 			PreparedStatement pstm=con.prepareStatement("insert into user_details (FNAME,LNAME,USERNAME,PASS_WORD,CITY,EMAIL,PHONE_NO)values(?,?,?,?,?,?,?)");
 			

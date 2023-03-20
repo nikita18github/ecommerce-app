@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-import com.main.Main_Disp;
+import com.main.MainDisplay;
 
 public class CheckRegisteredUser 
 {
@@ -16,7 +16,7 @@ public class CheckRegisteredUser
 	{
 		try {
 		
-		Connection con=CommonCon.getConnection();
+		Connection con=CommonConnection.getConnection();
 		
 		PreparedStatement pstm=con.prepareStatement("select * from userdetails where username=?");
 		pstm.setString(1, username);

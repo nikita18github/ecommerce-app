@@ -3,7 +3,7 @@ package com.adminMain;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class CommonCon {
+public class CommonConnection {
 
    public static Connection getConnection()
    {
