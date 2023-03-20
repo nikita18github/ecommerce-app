@@ -10,9 +10,9 @@ public class CommonCon {
 	   Connection con=null;
 	   try
 	   {
-		   Class.forName("com.mysql.cj.jdbc.Driver");
+		  // Class.forName("com.mysql.cj.jdbc.Driver");
 		   
-		   con=DriverManager.getConnection("jdbc:mysql://localhost:3306/schema_2", "root","@#Pavan@#More%");
+		   con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommerce", "root","root");
 	   }
 	   catch(Exception e)
 	   {

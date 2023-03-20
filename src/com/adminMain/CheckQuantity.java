@@ -17,15 +17,11 @@ public class CheckQuantity {
 			pstm.setInt(1, id);
 			
 			ResultSet rs=pstm.executeQuery();
-			
-			
-			
+						
 			while(rs.next())
 			{
-				System.out.println("Product Quantity is:"+rs.getInt(1));
+				System.out.println("Product Quantity is: "+rs.getInt(1));
 			}
-			
-			
 			
 			con.close();
 			pstm.close();

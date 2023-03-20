@@ -11,13 +11,14 @@ public class Main_Disp {
 		int ch,pd,uo;
 		
 		do {
-		System.out.println("******** >> Welcome To Ecommerse Application << ********");
+		System.out.println("******** >> Welcome To Ecommerce Application << ********");
 		
 		
 		System.out.println("\n 1-Registered User  \n 2-Admin \n 3-Guest User \n 4-Exit");
 		
 		System.out.println("Please Select your Status");
 		ch=x.nextInt();
+		
 		
 		switch(ch)
 		{
@@ -56,6 +57,13 @@ public class Main_Disp {
             		 User_Registration.insertUserDetails(Fname, Lname,Username,Password,City,Email,Phone);
             		break;
             	case 2:
+            		System.out.println("Enter user-name: ");
+            		String uname=x.next();
+            		
+            		System.out.println("Enter user-password: ");
+            		String password=x.next();
+
+            		UserLogin.userLogin(uname, password);
             		break;
             	case 3:
             		break;
@@ -69,7 +77,7 @@ public class Main_Disp {
             		System.out.println();
             		break;
             	default:
-            		System.out.println("Wrong choice Enter again");
+            		System.out.println("Wrong choice.. \nEnter again");
             	}
             }while(uo!=7);
 			
@@ -77,21 +85,20 @@ public class Main_Disp {
 			
 		case 2:
 			do {
+				
 			System.out.println("\n 1-Add Product item \n 2-Calculate Bill \n 3-Display Amount To End User "
-					+ "\n 4-Check Quantity  \n 5-check Registered Users \n 6-Check The Particular History \n 7-Exit");
+					+ "\n 4-Check Quantity  \n 5-check Registered Users \n 6-Display History \n 7-Exit");
 			
 			System.out.println("Select your choice");
 			pd=x.nextInt();
-			
-			 
-			 
+		
 			 switch(pd)
 			 {
 			 case 1:
 			
 				 Scanner y=new Scanner(System.in);
 				
-                 
+              
 					System.out.println("Enter the Product Price");
 					int price=y.nextInt();
 					
@@ -110,23 +117,40 @@ public class Main_Disp {
 				 break;
 
 			 case 2:
-				 break;
-			 case 3:			 
-				 break;
-			 case 4:
 				 
+				 System.out.println("Calculate cart items amount");
+				 System.out.println("Enter customer name: ");
+				 String u=x.next();
+				 CalculateBill.totalAmount(u);
+				 break;
+				 
+			 case 3:
+				 System.out.println("Display total amount to user");
+				 System.out.println("Enter name of user:  ");
+				 String s=x.next();
+				 CalculateBill.totalAmount(s);
+				 //DisplayAmount.displayAmount(s);
+				 break;
+				 
+			 case 4:
 				 System.out.println("Enter the Product ID:");
 				 int id=x.nextInt();
 				 
 				 CheckQuantity.quantity(id);
 				 break;
-			 case 5:				 
+				 
+			 case 5:
+				 System.out.println("Enter the user name: ");
+				 String n=x.next();
+				 CheckRegisteredUser.checkUser(n);
 				 break;
-			 case 6:				 
+				 
+			 case 6:	
+				 System.out.println("Display history of user: ");
+				 String uname=x.next();
+				// String actions
+				DisplayHistory.showHistory(uname);
 				 break;				 
-			 case 7:
-				 System.out.println();
-				 break;
 			default:
 				System.out.println("Enter the Wrong Choice Enter again");	 
 			 }
