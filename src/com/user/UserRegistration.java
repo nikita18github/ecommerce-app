@@ -2,16 +2,38 @@ package com.user;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import com.adminMain.*;
-
+import java.util.Scanner;
 public class UserRegistration 
 {
-	public static void insertUserDetails(String Fname,String Lname,String Username,String Password,String City,String Email,String Phone)
+	public static void insertUserDetails()
 	{
 		try
 		{
-			Connection con=CommonConnection.getConnection();
+			Scanner x=new Scanner(System.in);
 			
-			PreparedStatement pstm=con.prepareStatement("insert into user_details (FNAME,LNAME,USERNAME,PASS_WORD,CITY,EMAIL,PHONE_NO)values(?,?,?,?,?,?,?)");
+			System.out.println("Enter the First Name:");
+    		String Fname=x.next();
+    		System.out.println("Enter the Last Name:");
+    		String Lname=x.next();
+    		System.out.println("Enter the User Name:");
+    		String Username=x.next();
+//    		x.next();
+    		System.out.println("Enter the Password:");
+    		String Password=x.next();
+//    		x.next();
+    		System.out.println("Enter the City Name:");
+    		String City=x.next();
+//    		x.next();
+    		System.out.println("Enter the Email:");
+    		String Email=x.next();
+//    		x.next();
+            System.out.println("Enter the Phone Number:");
+    		int Phone=x.nextInt();
+    	
+    		
+
+    		Connection con=CommonConnection.getConnection();
+			PreparedStatement pstm=con.prepareStatement("insert into userdetails (FNAME,LNAME,USERNAME,UserPassword,CITY,EMAIL,PHONENO)values(?,?,?,?,?,?,?)");
 			
 			pstm.setString(1, Fname);
 			pstm.setString(2,Lname);
@@ -19,7 +41,7 @@ public class UserRegistration
 			pstm.setString(4,Password);
 			pstm.setString(5,City);
 			pstm.setString(6,Email);
-			pstm.setString(7,Phone);
+			pstm.setInt(7,Phone);
 			
 			
 			pstm.execute();
@@ -35,4 +57,8 @@ public class UserRegistration
 		}
 		
 	}
+//	public static void main(String []args)
+//	{
+//		insertUserDetails();
+//	}
 }
