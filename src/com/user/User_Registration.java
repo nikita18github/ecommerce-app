@@ -33,6 +33,7 @@ public class User_Registration
 		{
 			e.printStackTrace();
 		}
+		CheckUserHistory.userHistory(Username,"user registration action");
 		
 	}
 }

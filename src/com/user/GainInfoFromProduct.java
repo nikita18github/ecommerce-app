@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import com.adminMain.CheckUserHistory;
 import com.adminMain.CommonConnection;
 
 public class GainInfoFromProduct 
@@ -42,6 +43,9 @@ public class GainInfoFromProduct
 			pstm2.execute();
 			
 			con.close();
+			
+			
+			CheckUserHistory.userHistory(UserName,"user added item actions!");
 			pstm.close();
 		}
 		catch(Exception e)

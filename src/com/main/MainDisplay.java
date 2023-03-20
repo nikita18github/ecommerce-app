@@ -83,6 +83,7 @@ public class MainDisplay {
 			
 		case 2:
 			do {
+				System.out.println("\n");
 
 				System.out.println("*****Admin Operation*****");
 			    System.out.println("\n 1-Add Product item \n 2-Calculate Bill \n 3-Display Amount To End User "
